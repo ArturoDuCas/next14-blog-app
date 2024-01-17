@@ -1,0 +1,12 @@
+.container {
+    height: 100px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: gray;
+}
+
+
+.text {
+    font-size: 12px;
+}
