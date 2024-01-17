@@ -10,3 +10,39 @@
     font-weight: bold;
 
 }
+
+.mobileLinks, .menuButton {
+    display: none;
+}
+
+
+
+@media (max-width: 768px) { /* 768px is the breakpoint for mobile devices */
+    .links {
+        display: none;
+    }
+
+    .menuButton {
+        display: block;
+        border: none;
+        border-radius: 5px;
+        color: var(--bg);
+        background-color: var(--text);
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .mobileLinks {
+        position: absolute;
+        top: 75px;
+        right: 0;
+        width: 50%;
+        height: calc(100vh - 75px);
+        background-color: var(--bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+}
