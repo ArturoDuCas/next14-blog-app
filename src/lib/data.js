@@ -14,7 +14,7 @@ export const getPosts = async() => {
 export const getPost = async(slug) => {
   try{
     connectToDatabase();
-    return await Post.find(slug);
+    return await Post.findOne({slug});
   }catch(err) {
     console.log(err);
     throw new Error("Failed to fetch post");
