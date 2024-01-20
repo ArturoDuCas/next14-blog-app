@@ -24,12 +24,7 @@
 
     .menuButton {
         display: block;
-        border: none;
-        border-radius: 5px;
-        color: var(--bg);
-        background-color: var(--text);
         cursor: pointer;
-        padding: 10px;
     }
 
     .mobileLinks {
@@ -44,5 +39,6 @@
         align-items: center;
         justify-content: center;
         gap: 20px;
+        z-index: 100;
     }
 }

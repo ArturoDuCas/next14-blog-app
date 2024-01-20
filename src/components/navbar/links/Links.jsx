@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 
 import styles from "./links.module.css";
 import NavLink from "@/components/navbar/links/navLink/navLink";
+import Image from "next/image";
 
 const links = [
   { href: '/', label: 'Homepage' },
@@ -39,12 +40,13 @@ const Links = () => {
         }
       </div>
 
-      <button
+      <Image
         className={styles.menuButton}
+        src="/menu.png" alt="menu"
+        width={25} height={25}
         onClick={() => setOpen(prev => !prev)}
-      >
-        Menu
-      </button>
+      />
+      
       { open &&
         <div className={styles.mobileLinks}>
           {links.map((link, index) => {

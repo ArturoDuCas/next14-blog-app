@@ -1,7 +1,7 @@
 .container {
     display: flex;
     gap: 100px;
-    margin: 20px 0px;
+    margin: 20px 0;
 }
 
 .textContainer {
@@ -42,6 +42,10 @@
     position: relative;
 }
 
+.heroImg {
+    object-fit: contain;
+}
+
 .socialContainer {
     position: relative;
     width: 500px;
@@ -49,6 +53,42 @@
     filter: grayscale(100%);
 }
 
-.brands {
 
+@media(max-width: 1024px) {
+    .container {
+        margin-bottom: 20px;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .buttonContainer {
+        justify-content: center;
+    }
+
+    .socialContainer {
+        margin-left:auto;
+    }
+}
+
+@media(max-width: 768px) {
+    .title {
+        font-size: 64px;
+    }
+
+    .buttonContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button {
+        width: 240px;
+        max-width: 100%;
+
+    }
+
+
+    .brands {
+         max-width: 100vw;
+        object-fit: contain;
+    }
 }
