@@ -33,11 +33,6 @@
     margin-bottom: 10px;
 }
 
-.avatar {
-    object-fit: cover;
-    border-radius: 50%;
-}
-
 .detailsText {
     display: flex;
     flex-direction: column;

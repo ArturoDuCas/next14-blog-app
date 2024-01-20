@@ -1,25 +1,25 @@
 import React from 'react';
 import styles from './postUser.module.css';
-
-const getData = async(userId) => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, {cache: "no-store"});
-  if (!res.ok) {
-    throw new Error("HTTP error, status = " + res.status);
-  }
-
-  return res.json();
-}
-
+import {getUser} from "@/lib/data";
+import Image from "next/image";
 
 const PostUser = async ({ userId }) => {
-  const user = await getData(userId);
+  const user = await getUser(userId);
 
 
   return (
-    <div className={styles.container}>
-      <span className={styles.title}>Author</span>
-      <span className={styles.username}>{user.username}</span>
-    </div>
+    <>
+      <Image
+        className={styles.avatar}
+        src={user.img ? user.img : '/noavatar.png'}
+        alt="author image"
+        height={30} width={30}
+      />
+      <div className={styles.container}>
+        <span className={styles.title}>Author</span>
+        <span className={styles.username}>{user.username}</span>
+      </div>
+    </>
   );
 };
 
