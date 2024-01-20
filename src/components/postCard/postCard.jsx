@@ -6,7 +6,7 @@ import Link from "next/link";
 
 
 
-const PostCard = () => {
+const PostCard = ({ post }) => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -17,9 +17,9 @@ const PostCard = () => {
       </div>
 
       <div className={styles.bottom}>
-        <h1 className={styles.title}>Title</h1>
-        <p className={styles.description}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam assumenda aut, consequatur eaque enim et eveniet expedita harum hic illo laudantium molestiae non provident quaerat qui rerum similique voluptas voluptate!</p>
-        <Link className={styles.link} href="/blog/post">READ MORE</Link>
+        <h1 className={styles.title}>{post.title}</h1>
+        <p className={styles.description}>{post.body}</p>
+        <Link className={styles.link} href={`/blog/${post.id}`}>READ MORE</Link>
       </div>
 
     </div>
