@@ -50,6 +50,11 @@ const postSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  createdAt: {
+    type: Date,
+    default: new Date(),
+    required: true,
+  },
 }, { timestamps: true });
 
 export const User = mongoose.models.User || mongoose.model("User", userSchema);
