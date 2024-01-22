@@ -4,7 +4,15 @@ import Image from "next/image";
 import PostUser from "@/components/postUser/postUser";
 import {getPost} from "@/lib/data";
 
+export const generateMetadata = async ({params}) => {
+  const { slug } = params;
+  const post = await getPost(slug);
 
+  return {
+    title: post.title,
+    description: post.description,
+  }
+}
 const PostPage = async ({ params }) => {
   const { slug } = params;
   const post = await getPost(slug);
