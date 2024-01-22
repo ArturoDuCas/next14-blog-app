@@ -1,5 +1,6 @@
 import {Post, User} from "@/lib/models";
 import {connectToDatabase} from "@/lib/utils";
+import { unstable_noStore } from "next/cache";
 
 export const getPosts = async() => {
   try{
@@ -32,6 +33,7 @@ export const getUsers = async() => {
 }
 
 export const getUser = async(id) => {
+  unstable_noStore(); // It's unstable, so it may change in the future
   try{
     connectToDatabase();
     return await User.findById(id);
