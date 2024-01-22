@@ -3,18 +3,25 @@ import Image from 'next/image';
 
 import styles from './postCard.module.css';
 import Link from "next/link";
-
+import {getGradient} from "@/utils/gradients";
 
 
 const PostCard = ({ post }) => {
+
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        {post.img && (
           <div className={styles.imgContainer}>
-            <Image src={post.img} alt="post image" fill className={styles.img} />
+            {post.img ?
+              <Image src={post.img} alt="post image" fill className={styles.img}/>
+              :
+              <div className={styles.emptyDiv}
+                   style={{
+                     backgroundImage: getGradient(post.id),
+                   }}/>
+              }
           </div>
-        )}
         <span className={styles.date}>01.01.2024</span>
       </div>
 

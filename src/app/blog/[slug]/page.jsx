@@ -3,6 +3,7 @@ import styles from './postPage.module.css';
 import Image from "next/image";
 import PostUser from "@/components/postUser/postUser";
 import {getPost} from "@/lib/data";
+import {getGradient} from "@/utils/gradients";
 
 export const generateMetadata = async ({params}) => {
   const { slug } = params;
@@ -20,9 +21,14 @@ const PostPage = async ({ params }) => {
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
-        {post.img && (
+        {post.img ?
           <Image className={styles.img} src={post.img} alt="post image" fill/>
-        )}
+          :
+          <div className={styles.emptyDiv}
+               style={{
+                 backgroundImage: getGradient(post.id),
+           }}/>
+        }
       </div>
       <div className={styles.textContainer}>
         <h1 className={styles.title}>{post.title}</h1>

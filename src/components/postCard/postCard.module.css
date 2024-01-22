@@ -19,6 +19,11 @@
     object-fit: cover;
 }
 
+.emptyDiv {
+    width: 100%;
+    height: 100%;
+}
+
 .date {
     font-size: 12px;
     transform: rotate(-90deg);
