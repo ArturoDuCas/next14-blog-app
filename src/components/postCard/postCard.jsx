@@ -18,7 +18,7 @@ const PostCard = ({ post }) => {
               :
               <div className={styles.emptyDiv}
                    style={{
-                     backgroundImage: getGradient(post.id),
+                     backgroundImage: getGradient(post._id),
                    }}/>
               }
           </div>

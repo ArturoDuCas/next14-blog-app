@@ -2,21 +2,31 @@ import React, {Suspense} from 'react';
 import styles from './postPage.module.css';
 import Image from "next/image";
 import PostUser from "@/components/postUser/postUser";
-import {getPost} from "@/lib/data";
 import {getGradient} from "@/utils/gradients";
+// import {getPost} from "@/lib/data";
+
+const getData = async(slug) => {
+  const res = await fetch("http://localhost:3000/api/blog/" + slug);
+  if(!res.ok) throw new Error(res.statusText);
+
+  return await res.json();
+}
 
 export const generateMetadata = async ({params}) => {
   const { slug } = params;
-  const post = await getPost(slug);
+  const post = await getData(slug);
 
   return {
     title: post.title,
     description: post.description,
   }
 }
+
+
 const PostPage = async ({ params }) => {
   const { slug } = params;
-  const post = await getPost(slug);
+  // const post = await getPost(slug);
+  const post = await getData(slug);
 
   return (
     <div className={styles.container}>
@@ -26,7 +36,7 @@ const PostPage = async ({ params }) => {
           :
           <div className={styles.emptyDiv}
                style={{
-                 backgroundImage: getGradient(post.id),
+                 backgroundImage: getGradient(post._id),
            }}/>
         }
       </div>
