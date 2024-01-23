@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import styles from "./links.module.css";
 import NavLink from "@/components/navbar/links/navLink/navLink";
 import Image from "next/image";
+import {handleLogout} from "@/lib/actions";
 
 const links = [
   { href: '/', label: 'Homepage' },
@@ -12,12 +13,9 @@ const links = [
   { href: '/blog', label: 'Blog' },
 ];
 
-const Links = () => {
+const Links =  ({ session }) => {
   const [open, setOpen] = useState(false);
 
-  // TODO: Replace these temporary variables with real ones
-  const session = true;
-  const isAdmin = true;
 
   return (
     <div className={styles.container}>
@@ -27,11 +25,13 @@ const Links = () => {
             <NavLink key={index} item={link} />
           );
         })}
-        {session ?
+        {session?.user ?
           ( // If session is active
             <>
-              {isAdmin && <NavLink item={{ href: '/admin', label: 'Admin' }} />}
-              <button className={styles.logout}>Logout</button>
+              {session.user?.isAdmin && <NavLink item={{ href: '/admin', label: 'Admin' }} />}
+              <form action={handleLogout}>
+                <button className={styles.logout}>Logout</button>
+              </form>
             </>
           ) :
           (

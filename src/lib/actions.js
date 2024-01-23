@@ -3,6 +3,7 @@
 import {connectToDatabase} from "@/lib/utils";
 import {Post} from "@/lib/models";
 import {revalidatePath} from "next/cache";
+import {signIn, signOut} from "@/lib/auth";
 
 export const createPost = async (formData) => {
   const { title, description, slug, userId } = Object.fromEntries(formData);
@@ -39,3 +40,12 @@ export const deletePost = async (formData) => {
     throw new Error("Error connecting to database");
   }
 };
+
+
+export const handleGithubLogin = async () => {
+  await signIn("github");
+}
+
+export const handleLogout = async () => {
+  await signOut();
+}
