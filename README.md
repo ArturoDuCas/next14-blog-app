@@ -30,4 +30,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Video
 
 [![Next.js Crash Course 2021](https://img.youtube.com/vi/vCOSTG10Y4o/0.jpg)](https://www.youtube.com/watch?v=vCOSTG10Y4o)
-https://youtu.be/vCOSTG10Y4o 47:49
+https://youtu.be/vCOSTG10Y4o  
+Where I left off: 04:33:20

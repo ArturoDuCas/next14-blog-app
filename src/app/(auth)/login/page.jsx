@@ -4,6 +4,7 @@ import LoginForm from "@/components/loginForm/loginForm";
 import styles from "./login.module.css";
 
 const LoginPage = () => {
+
   return (
     <div>
       <div className={styles.container}>
